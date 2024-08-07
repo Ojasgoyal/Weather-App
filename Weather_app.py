@@ -29,11 +29,13 @@ def main():
         try:
             city = input("Enter city name: ").lower()
             if city == "exit":
-                sys.exit('\nClosing the app')
+                print('\nClosing the app')
+                break
 
             country = input("Enter country name: ").lower()
             if country == "exit":
-                sys.exit('\nClosing the app')
+                print('\nClosing the app')
+                break
 
             data = get_weather(city,country)
             
