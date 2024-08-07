@@ -7,14 +7,16 @@ load_dotenv()
 
 API_KEY = os.getenv('API_KEY')
 if not API_KEY:
-    raise ValueError
+    raise ValueError("API_KEY environment variable not set.")
 
-BASE_URL = "http://api.weatherapi.com/v1/current.json"
 
 def get_weather(city,country):
-    url = f"{BASE_URL}?key={API_KEY}&q={city},{country}"
+    url = f"http://api.weatherapi.com/v1/current.json?key={API_KEY}&q={city},{country}"
     response = requests.get(url)
+    if response.status_code != 200:
+        raise ConnectionError(f"Error: Received status code {response.status_code}")
     return response.json()
+
 
 def main():
 
@@ -25,13 +27,14 @@ def main():
 
     while True:
         try:
-            
             city = input("Enter city name: ").lower()
             if city == "exit":
-                raise EOFError
+                sys.exit('\nClosing the app')
+
             country = input("Enter country name: ").lower()
             if country == "exit":
-                raise EOFError
+                sys.exit('\nClosing the app')
+
             data = get_weather(city,country)
             
             if "error" in data:
@@ -39,10 +42,9 @@ def main():
             else:
                 temp = data['current']['temp_c']
                 weather = data['current']['condition']['text']
-                print(f"temperature: {temp}°C")
-                print(f"weather: {weather}\n")
-        except EOFError:
-            sys.exit('\nClosing the app')
+                print(f"Temperature: {temp}°C")
+                print(f"Weather: {weather}\n")
+
         except:
             print("Could not fetch weather data")
         
