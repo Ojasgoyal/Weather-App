@@ -1,0 +1,165 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5em; /* Larger font size for the title */
+  color: #333;
+}
+
+/* Search Section Styles */
+.search-section {
+  margin-top: 20px; /* Spacing above the search section */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  justify-content: center; /* Centers items horizontally */
+  display: flex;
+  align-items: center; /* Center align inputs and button */
+  width: 100%; /* Full width for responsive behavior */
+
+}
+
+input[type="text"] {
+  max-width: 200px !important; /* Maximum width for the input */
+  padding: 10px;
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 20px;
+  width: 200px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s; /* Smooth border transition */
+}
+
+input[type="text"]:focus {
+  border-color: #0056b3; /* Darker blue on focus */
+  outline: none; /* Remove default outline */
+}
+
+button {
+  max-width: 200px !important;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Weather Details Section Styles */
+#weatherDetails {
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Maximum width for weather details */
+  text-align: center;
+  margin-top: 20px; /* Space above weather details */
+  transition: all 0.3s ease;
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+}
+
+#weatherDetails.hidden {
+  display: none; /* Hide weather details if not needed */
+}
+
+#weatherIcon img {
+  width: 80px;
+  height: 80px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 1.8em; /* Font size for weather title */
+  color: #333;
+}
+
+p {
+  font-size: 1.1em; /* Paragraph font size */
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  /* Mobile Styles */
+  body {
+    justify-content: center; /* Vertically center content */
+  }
+
+  h1 {
+    font-size: 2em; /* Smaller font size for mobile */
+  }
+
+  .search-section {
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: center; /* Center aligned */
+  }
+
+  input[type="text"] {
+    width: 90%; /* Full width on small screens */
+    max-width: none; /* No maximum width */
+    margin-bottom: 10px; /* Space between input and button */
+  }
+
+  button {
+    width: 90%; /* Full width on small screens */
+    max-width: none; /* No maximum width */
+  }
+
+  #weatherDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center items horizontally */
+    text-align: center;   /* Center text */
+    margin: 20px auto;    /* Add some margin for spacing */
+    padding: 20px;        /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Optional: add border */
+    border-radius: 8px;   /* Optional: rounded corners */
+    background-color: #f9f9f9; /* Optional: background color */
+    width: 80%;           /* Optional: set width */
+    max-width: 600px;    /* Optional: set a max width */
+}
+
+  p {
+    font-size: 0.9em; /* Adjust paragraph size for smaller screens */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Tablet Styles */
+  h1 {
+    font-size: 2.2em; /* Adjust heading for tablets */
+  }
+
+  input[type="text"] {
+    width: 80%; /* Input width for tablets */
+  }
+
+  #weatherDetails {
+    width: 80%; /* Weather details width for tablets */
+  }
+}
